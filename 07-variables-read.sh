@@ -8,3 +8,10 @@ echo "please enter your username:"
 read USERNAME
 
 echo "entered username is:$USERNAME"
+
+# if you don't want password to be visible while you are entering use 'read-s'
+
+read -s PASSWORD
+
+# below statement is for just for confirmation
+echo "entered password is : $PASSWORD"
