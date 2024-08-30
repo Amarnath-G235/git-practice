@@ -11,6 +11,8 @@ if [ $NUM -eq 20 ]
 then
    echo "given number $NUM is equal to 20"
 fi
+
 if [ $NUM -lt 20 ]
+then
    echo "given number $NUM is less than 20"
 fi
