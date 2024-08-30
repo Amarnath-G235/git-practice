@@ -7,10 +7,10 @@ USERID=$(id -u)
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
-       echo "command faild..try again"
+       echo "$2 faild..try again"
        exit 1
     else
-       echo "command success,already installed"
+       echo "$2 success,already installed"
     fi
 }
 
@@ -24,4 +24,4 @@ fi
 
 dnf list installed mysql
 
-VALIDATE $?
+VALIDATE $? "listing mysql"
