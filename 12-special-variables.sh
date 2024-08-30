@@ -7,4 +7,4 @@
 #ls -l 
 #echo "script name : $0"
 
-echo "current working directory: $PWD"
+echo "current working directory:$PWD"
