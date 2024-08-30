@@ -10,7 +10,7 @@ VALIDATE() {
        echo "command faild..try again"
        exit 1
     else
-       echo "command failed"
+       echo "command success,already installed"
     fi
 }
 
