@@ -4,13 +4,14 @@
 
 USERID=$(id -u)
 
-VALIDATE(){
+VALIDATE() {
     if [ $1 -ne 0 ]
     then
        echo "command faild..try again"
        exit 1
     else
        echo "command failed"
+    fi
 }
 
 if [ $USERID -ne 0 ]
