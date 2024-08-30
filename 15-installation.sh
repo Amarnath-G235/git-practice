@@ -7,7 +7,7 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then 
    echo "please run this script with sudo previleges"
-   exit1
+   exit 1
 fi
 
 #checking if mysql is already installed or not. if not installed going to install it
