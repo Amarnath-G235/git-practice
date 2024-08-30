@@ -8,4 +8,4 @@ then
    exit 1
 fi
 
-dnf install mysqld -y
+dnf install mysql -y
