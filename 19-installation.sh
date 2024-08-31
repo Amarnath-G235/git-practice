@@ -30,20 +30,14 @@ else
    echo " already installed. you cannot install twice."
 fi
 
-# mysql installation script
+ mysql installation script
 
-#dnf list installed mysql
-#if [ $? -ne 0 ]
-#then 
-#   echo "mysql is not installed..going to install it"
-#   dnf install mysql -y
-#    if [ $? -ne 0 ]
-#    then
-#      echo "command failed.."
-#      exit 1
-#    else
-#      echo "command executed successfully."
-#    fi
-#else
-#   echo "mysql is already installed.you cannot install twice."
-#fi
+dnf list installed mysql
+if [ $? -ne 0 ]
+then 
+   echo "mysql is not installed..going to install it"
+   dnf install mysql -y
+    VALIDATE $? "installing mysql"
+else
+   echo "mysql is already installed.you cannot install twice."
+fi
