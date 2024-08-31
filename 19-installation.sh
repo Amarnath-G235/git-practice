@@ -30,7 +30,7 @@ else
    echo " already installed. you cannot install twice."
 fi
 
- mysql installation script
+# mysql installation script
 
 dnf list installed mysql
 if [ $? -ne 0 ]
