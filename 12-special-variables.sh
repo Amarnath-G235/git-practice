@@ -12,5 +12,5 @@
 
 #echo "PID of script executing now:$$"
 
-sleep 100 &
-echo "PID of last background command:$!"
+#sleep 100 &
+#echo "PID of last background command:$!"
