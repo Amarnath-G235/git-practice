@@ -20,12 +20,12 @@ VALIDATION(){
 
 # git installation script
 
-dnf list installed nodejs
+dnf list installed git
 if [ $? -ne 0 ]
 then 
    echo "git is not installed..going to install it"
-   dnf install nodejs -y
-   VALIDATION $? "installing nodejs"
+   dnf install git -y
+   VALIDATION $? "installing git"
 else
    echo " already installed. you cannot install twice."
 fi
