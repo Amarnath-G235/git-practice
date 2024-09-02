@@ -15,7 +15,7 @@ Y="\e[33m"
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
     then 
-       echo -e "$R please run this script with sudo previleges $N" & >> $LOG_FILE
+       echo -e "$R please run this script with sudo previleges $N" | tee -a &>>$LOG_FILE
        exit 1
     fi
 }
@@ -23,19 +23,21 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-      echo -e " $2 is $R failed.. $N" & >>$LOG_FILE
+      echo -e " $2 is $R failed.. $N"&>>$LOG_FILE | tee -a &>>$LOG_FILE
       exit 1
     else
-      echo -e " $2 is $G success. $N" & >>$LOG_FILE
+      echo -e " $2 is $G success. $N" & >>$LOG_FILE | tee -a &>>$LOG_FILE
     fi
 }
+
+
 
 USAGE(){
     echo -e " $R usage :: $N sudo sh.22-redirectors.sh PACKAGE1 PACKAGE2 PACKAGE3.."
     exit 1
 }
 
-echo "script started executing at :$(date)" & >>$LOG_FILE
+echo "script started executing at :$(date)" &>>$LOG_FILE | tee -a &>>$LOG_FILE
 
 CHECK_ROOT
 
@@ -49,10 +51,10 @@ do
    dnf list installed $PACKAGE &>> $LOG_FILE
     if [ $? -ne 0 ]
     then 
-       echo -e "$PACKAGE is $R not installed.. going to install it $N" &>> $LOG_FILE
+       echo -e "$PACKAGE is $R not installed.. going to install it $N" | tee -a &>>$LOG_FILE
        dnf install $PACKAGE -y &>>$LOG_FILE
        VALIDATE $? "installing $PACKAGE"
     else
-       echo -e "$PACKAGE $Y already installed. you cannot install twice.$N" >> $LOG_FILE
+       echo -e "$PACKAGE $Y already installed. you cannot install twice.$N" | tee -a &>>$LOG_FILE
     fi
 done
