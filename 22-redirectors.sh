@@ -49,7 +49,7 @@ do
     then 
        echo -e "$PACKAGE is $R not installed.. going to install it $N" &>> $LOG_FILE
        dnf install $PACKAGE -y &>>$LOG_FILE
-       VALIDATION $? "installing $PACKAGE"
+       VALIDATE $? "installing $PACKAGE"
     else
        echo -e "$PACKAGE $Y already installed. you cannot install twice.$N" >> $LOG_FILE
     fi
