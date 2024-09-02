@@ -36,6 +36,6 @@ do
        dnf install $PACKAGE -y
        VALIDATION $? "installing $PACKAGE"
     else
-       echo " already installed. you cannot install twice."
+       echo "$PACKAGE already installed. you cannot install twice."
 fi
 done
