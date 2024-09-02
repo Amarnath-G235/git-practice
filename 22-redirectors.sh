@@ -23,10 +23,10 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-      echo -e " $2 is $R failed.. $N"&>>$LOG_FILE | tee -a &>>$LOG_FILE
+      echo -e " $2 is $R failed.. $N"&>>$LOG_FILE | tee -a $LOG_FILE
       exit 1
     else
-      echo -e " $2 is $G success. $N" & >>$LOG_FILE | tee -a &>>$LOG_FILE
+      echo -e " $2 is $G success. $N" & >>$LOG_FILE | tee -a $LOG_FILE
     fi
 }
 
@@ -37,7 +37,7 @@ USAGE(){
     exit 1
 }
 
-echo "script started executing at :$(date)" &>>$LOG_FILE | tee -a &>>$LOG_FILE
+echo "script started executing at :$(date)" | tee -a $LOG_FILE
 
 CHECK_ROOT
 
@@ -51,10 +51,10 @@ do
    dnf list installed $PACKAGE &>> $LOG_FILE
     if [ $? -ne 0 ]
     then 
-       echo -e "$PACKAGE is $R not installed.. going to install it $N" | tee -a &>>$LOG_FILE
+       echo -e "$PACKAGE is $R not installed.. going to install it $N" | tee -a $LOG_FILE
        dnf install $PACKAGE -y &>>$LOG_FILE
        VALIDATE $? "installing $PACKAGE"
     else
-       echo -e "$PACKAGE $Y already installed. you cannot install twice.$N" | tee -a &>>$LOG_FILE
+       echo -e "$PACKAGE $Y already installed. you cannot install twice.$N" | tee -a $LOG_FILE
     fi
 done
