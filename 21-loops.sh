@@ -25,6 +25,7 @@ VALIDATION(){
 
 CHECK_ROOT
 
+# PACKAGE installation automation
 # $@--->refers to all packages passed to it
 
 for PACKAGE in $@
